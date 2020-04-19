@@ -18,7 +18,7 @@ nickname = name.toUpperCase();
 groups = [];
 sessionState = 0;
 allUsers.push({nickname, password, sessionState, groups});
-return name;
+return allUsers[allUsers.length - 1];
 }
 // Удаляет пользователя user
 function deleteUser(user) {
@@ -106,7 +106,7 @@ function deleteRight(right) {
 }
 // Возвращает массив групп
 function groups() {
-    return allGroups
+    return Object.keys(allGroups)
 }
 // Создает новую группу и возвращает её.
 function createGroup(name) {
@@ -117,7 +117,7 @@ function createGroup(name) {
             throw Error('Такая группа уже существует');
         }
     allGroups[name] = name = [];
-    return name;
+    return [Object.keys(allGroups)[Object.keys(allGroups).length - 1]];
 }
 // Удаляет группу group
 function deleteGroup(group) {
